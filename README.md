@@ -20,6 +20,14 @@
     4.  DB_DATABASE={{database_name}}
     5.  DB_USERNAME={{database_user}}****
     6.  DB_PASSWORD={{database_password}}
+    7.  MAIL_MAILER=smtp
+    8.  MAIL_HOST=smtp.mailtrap.io
+    9.  MAIL_PORT=2525
+    10. MAIL_USERNAME={{user_name}}
+    11. MAIL_PASSWORD={{password}}
+    12. MAIL_ENCRYPTION=tls
+    13. MAIL_FROM_ADDRESS=info@mail.com
+- for run migrations needs run **php artisan migrate**
 - for working auth run in root path of project in console command: **php artisan passport:install**
 - for running on machine without configuration web server just run command **php artisan serve**      
 
