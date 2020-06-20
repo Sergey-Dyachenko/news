@@ -67,6 +67,11 @@ return [
             'channel' => env('MAIL_LOG_CHANNEL'),
         ],
 
+        'mailer' => [
+        'driver' => 'single',
+        'path' => storage_path('logs/mailer.log'),
+    ],
+
         'array' => [
             'transport' => 'array',
         ],

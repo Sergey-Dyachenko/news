@@ -3,6 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\OnlyExistUserWithExistEmail;
+use App\User;
+use App\Rules\CheckCorrectPassword;
 
 class LoginDataValidateForShowToken extends FormRequest
 {
@@ -13,7 +16,7 @@ class LoginDataValidateForShowToken extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +27,8 @@ class LoginDataValidateForShowToken extends FormRequest
     public function rules()
     {
         return [
-            //
+            'email' => ['required', new OnlyExistUserWithExistEmail(User::class)],
+            'password' => ['required', new CheckCorrectPassword(User::class, $this->ValidationData()) ]
         ];
     }
 }
